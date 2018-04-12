@@ -2,9 +2,8 @@ import psycopg2
 
 class db:
 	def __init__(self, dbname, user):
-		self.dbname = dbname
-		self.user = user
 		self.conn = psycopg2.connect("dbname=%s user=%s" %(dbname,user))
+		self.conn.set_session(autocommit=True)
 		self.cur = self.conn.cursor()
 
 	def read(self, command, args=(), flat=True):
@@ -23,8 +22,8 @@ class db:
 		self.cur.execute(command, args)
 		self.conn.commit()
 
-	def clear(self): # Reconnect if transaction error
-		self.__init__(self.dbname, self.user)
+	def clear(self): # Resets the connection
+		self.conn.reset()
 	
 	def __del__(self):
 		self.cur.close()
