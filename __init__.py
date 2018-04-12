@@ -20,7 +20,6 @@ class db:
 	
 	def write(self, command, args=()):
 		self.cur.execute(command, args)
-		self.conn.commit()
 
 	def clear(self): # Resets the connection
 		self.conn.reset()
