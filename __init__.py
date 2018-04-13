@@ -9,7 +9,7 @@ class db:
 	def read(self, command, args=(), flat=True):
 		self.cur.execute(command, args)
 		f = self.cur.fetchall()
-		if not flat:
+		if not flat or not f:
 			return f
 		else:
 			if len(f[0]) == 1:
