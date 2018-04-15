@@ -9,13 +9,13 @@ class db:
 	def read(self, command, args=(), flat=True):
 		self.cur.execute(command, args)
 		f = self.cur.fetchall()
-		if not flat or not f:
+		if not f or not flat:
 			return f
 		else:
 			if len(f[0]) == 1:
 				f = [i[0] for i in f]
-			if len(f) == 1:
-				f = f[0]
+				if len(f) == 1:
+					f = f[0]
 			return f
 	
 	def write(self, command, args=()):
