@@ -20,7 +20,10 @@ class db:
 
 	def read1(self, command, args=()):
 		self.cur.execute(command, args)
-		return self.cur.fetchone()
+		f = self.cur.fetchone()
+		if len(f) == 1:
+			f = f[0]
+		return f
 	
 	def write(self, command, args=()):
 		self.cur.execute(command, args)
