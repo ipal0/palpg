@@ -17,6 +17,10 @@ class db:
 				if len(f) == 1:
 					f = f[0]
 			return f
+
+	def read1(self, command, args=()):
+		self.cur.execute(command, args)
+		return self.cur.fetchone()
 	
 	def write(self, command, args=()):
 		self.cur.execute(command, args)

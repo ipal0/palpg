@@ -14,6 +14,7 @@
 * db.write("sql statement")  ##-writes the data and commits to the database
 * db.read("select item from table", flat=False)  ##-returns the raw read data 
 * db.read("select item from table where item = %s", (sub1,))  ##-read with string substitution
+* db.read1("select item from table where id = 1") ##-returns the data for one item
 * db.clear()  #-to reconnect if any transaction error
 
 ## For other psycopg cursor commands use the cursor class
