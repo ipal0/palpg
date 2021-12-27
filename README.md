@@ -9,7 +9,7 @@
 
 ## Usage Examples:
 * import palpg
-* db = palpg.db("dbname", "user")  ##-connect to the database as user
+* db = palpg.db(dbname="dbname", user="user")  ##-connect to the database as user
 * db.read("sql statement")  ##-returns the read data from database
 * db.write("sql statement")  ##-writes the data and commits to the database
 * db.read("select item from table", flat=False)  ##-returns the raw read data 
